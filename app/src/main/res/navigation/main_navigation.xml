@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.fortatic.apps.nestednavigationexample.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_navGraphOne"
+            app:destination="@id/navGraphOne"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_startFragment_to_navGraphTwo"
+            app:destination="@id/navGraphTwo"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <navigation
+        android:id="@+id/navGraphOne"
+        app:startDestination="@id/AFragment">
+        <fragment
+            android:id="@+id/AFragment"
+            android:name="com.fortatic.apps.nestednavigationexample.one.AFragment"
+            android:label="fragment_a"
+            tools:layout="@layout/fragment_a">
+            <action
+                android:id="@+id/action_AFragment_to_BFragment"
+                app:destination="@id/BFragment"
+                app:popUpTo="@id/AFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/BFragment"
+            android:name="com.fortatic.apps.nestednavigationexample.one.BFragment"
+            android:label="fragment_b"
+            tools:layout="@layout/fragment_b" />
+    </navigation>
+
+    <navigation
+        android:id="@+id/navGraphTwo"
+        app:startDestination="@id/CFragment">
+        <fragment
+            android:id="@+id/CFragment"
+            android:name="com.fortatic.apps.nestednavigationexample.two.CFragment"
+            android:label="fragment_c"
+            tools:layout="@layout/fragment_c">
+            <action
+                android:id="@+id/action_CFragment_to_DFragment"
+                app:destination="@id/DFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/DFragment"
+            android:name="com.fortatic.apps.nestednavigationexample.two.DFragment"
+            android:label="fragment_d"
+            tools:layout="@layout/fragment_d" />
+    </navigation>
+
+</navigation>
